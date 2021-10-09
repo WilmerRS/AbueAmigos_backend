@@ -1,0 +1,2 @@
+# AbueAmigos_backend
+¿Alguna vez has querido ser escuchado? ¿Te has sentido solo? ¿Has querido ayudar y ser ayudado?AbueAmigos, la aplicación móvil que permitirá a tí, adulto mayor, disfrutar del acompañamiento de AbueAmigos, personas que te brindarán su tiempo para escucharte, animarte y hacerte sentir querido. Además, podrás acceder a la compañía de amiguitos peludos, con los que podrás pasar ratos agradables.
