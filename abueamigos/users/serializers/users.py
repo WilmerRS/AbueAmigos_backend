@@ -17,12 +17,12 @@ class UserLoginSerializer(serializers.Serializer):
     Handle the login request data.
     """
 
-    username = serializers.CharField(min_length=3, max_length=30)
+    email = serializers.EmailField(min_length=3, max_length=30)
     password = serializers.CharField(min_length=8, max_length=64)
 
     def validate(self, data):
         """Check credentials."""
-        user = User.objects.get(username=data['username'], password=data['password'])
+        user = User.objects.get(email=data['email'])
         if not user:
             raise serializers.ValidationError('Invalid credentials')
         self.context['user'] = user
