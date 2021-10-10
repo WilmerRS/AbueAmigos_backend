@@ -14,6 +14,7 @@ class Profile(AbueAmigosModel):
                                 blank=True,
                                 null=True)
     biography = models.TextField(max_length=500, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -1,6 +1,3 @@
-# Django
-from django.contrib.auth.hashers import make_password
-
 # Django restframework
 from rest_framework import serializers
 
