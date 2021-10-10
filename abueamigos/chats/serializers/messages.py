@@ -22,23 +22,24 @@ class MessageSerializer(serializers.ModelSerializer):
         read_only_field = ['chat', 'user', 'contact']
 
     def create(self, validated_data):
+        print(validated_data, '\n')
         user = User.objects.get(pk=validated_data.pop('user'))
         contact = User.objects.get(pk=validated_data.pop('contact'))
         if not user or not contact:
             raise serializers.ValidationError('User and contact are required')
         chat_id = validated_data.pop('chat')
-        message=validated_data.pop('message')
+        message = validated_data.pop('message')
         chat = None
+        full_name = contact.first_name + ' ' + contact.last_name
         if not chat_id:
-            full_name = user.first_name + ' ' + user.last_name
             chat = Chat.objects.create(user=user, full_name=full_name, contact=contact, last_message=message)
         else:
             chat = Chat.objects.get(pk=chat_id)
             chat.last_message = message
             chat.save()
-
-        message, created = Message.objects.update_or_create(message=message, user=user, chat=chat)
+        message, created = Message.objects.update_or_create(message=message, user=user, chat=chat, contact=full_name)
         return message
+
 
 class ListMessageSerializer(serializers.ModelSerializer):
     chat = ChatSerializer()

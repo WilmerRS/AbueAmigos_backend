@@ -30,9 +30,12 @@ class ChatsViews(mixins.CreateModelMixin,
         chats = Chat.objects.filter(user__pk=user, contact__pk=contact)
         if len(chats) == 0:
             chats = Chat.objects.filter(user__pk=contact, contact__pk=user)
-
+        print(chats, 'wilmer\n')
         messages = Message.objects.filter(chat=chats)
-        serializer = ListMessageSerializer(data=messages)
-        if serializer.is_valid():
-            return Response('Messages is not valid.', 400)
-        return Response(serializer.data)
+        serializer = []
+        for m in messages:
+            s = ListMessageSerializer(data=m)
+            if s.is_valid():
+                return Response('Messages is not valid.', 400)
+            serializer.append(s)
+        return Response(serializer)

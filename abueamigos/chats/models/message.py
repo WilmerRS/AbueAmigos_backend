@@ -11,4 +11,4 @@ class Message(AbueAmigosModel):
     message = models.CharField(max_length=500)
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_transmitter')
-
+    contact = models.CharField(default=" ", max_length=150)
