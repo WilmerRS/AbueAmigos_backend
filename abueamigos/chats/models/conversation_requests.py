@@ -7,5 +7,5 @@ from abueamigos.utils import AbueAmigosModel
 
 
 class ConversationsRequest(AbueAmigosModel):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.CharField(max_length=500)

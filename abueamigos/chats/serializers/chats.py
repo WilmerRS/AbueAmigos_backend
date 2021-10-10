@@ -2,17 +2,17 @@
 from rest_framework import serializers
 
 # Models
-from abueamigos.users.models.profiles import Profile
+from abueamigos.chats.models.chats import Chat
 
 # Serializers
 from abueamigos.users.serializers.users import UserSerializer
 
 
 class ChatSerializer(serializers.ModelSerializer):
-    user = UserSerializer(required=True)
-    contact = UserSerializer(required=True)
+    user = UserSerializer()
+    contact = UserSerializer()
 
     class Meta:
-        model = Profile
+        model = Chat
         fields = "__all__"
         read_only_field = ['user', 'contact']

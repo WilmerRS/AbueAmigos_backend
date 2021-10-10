@@ -2,16 +2,16 @@
 from rest_framework import serializers
 
 # Models
-from abueamigos.users.models.profiles import Profile
+from abueamigos.chats.models.message import Message
 
 # Serializers
 from abueamigos.chats.serializers.chats import ChatSerializer
 
 
 class MessageSerializer(serializers.ModelSerializer):
-    chat = ChatSerializer(required=True)
+    chat = ChatSerializer()
 
     class Meta:
-        model = Profile
+        model = Message
         fields = "__all__"
-        read_only_field = ['chat',]
+        read_only_field = ['chat']
