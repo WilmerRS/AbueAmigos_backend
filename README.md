@@ -37,7 +37,7 @@ Our mobile App will allow the elderly to enjoy the accompaniment of AbueAmigos, 
 ## 📷 Screenshots
 <div align="center">
   <center>
-    <img width="1300" height="" src='https://svgshare.com/i/b4p.svg' title='Abueamigos' />
+    <img width="1300" height="" src='https://ibb.co/dpWSztg' title='Abueamigos' />
   </center>
 </div>
 
